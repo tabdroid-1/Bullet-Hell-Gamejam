@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - GoBack
+  - Key
   layers:
   - Default
   - TransparentFX

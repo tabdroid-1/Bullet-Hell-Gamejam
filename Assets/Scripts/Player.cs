@@ -9,12 +9,13 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D playerRb;
     private BulletCollider bulletCollider;
+    [SerializeField]
+    private KeyFollow keyFollow;
 
     [SerializeField]
     private float speed = 25.0f;
     [SerializeField]
     public float blood = 100;
-    private bool isMoving;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 100f;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float collisionDisableDuration = 0.2f;
     [Space]
 
+    public bool hasKey = false;
 
     public bool gameOver = false;
     public bool finished = false;
@@ -42,13 +44,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         GameOver();
+        KeyCheck();
     }
 
     private void FixedUpdate()
     {
         Move();
 
-        BloodLeft(5f);
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -57,36 +59,16 @@ public class Player : MonoBehaviour
         
     }
 
+    //movement for player
     void Move()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
         playerRb.MovePosition(playerRb.position + movement * speed * Time.fixedDeltaTime);
     }
 
-    void BloodLeft(float value)
-    {
-        if (isMoving)
-        {
-            blood -= value * Time.smoothDeltaTime;
-        }
-
-        if (blood <= 0)
-        {
-            gameOver = true;
-        }
-    }
-
+    //says what to do if game is over
     void GameOver()
     {
         if (gameOver)
@@ -95,18 +77,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    //if player gets hit by bullet this will get bullets damage and damage player by same amount
     public void HitByBullet(BulletContainer bulletContainer, BulletCollider bulletCollider)
     {
         blood -= bulletContainer.Damage;
     }
 
+    //damages player
     public void Damage(float damage)
     {
         blood -= damage;
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.CompareTag("Finish"))
         {
             SceneManager.LoadScene(2);
@@ -115,19 +101,26 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+
     }
 
+    //enables dash
     void Dash()
     {
         if (dashable)
         {
             StartCoroutine(DashCoolDown(dashCooldown));
-            Damage(8);
         }
         
-
-
     }
+
+    //checks if player have a key
+    void KeyCheck()
+    {
+
+        hasKey = keyFollow.canFollow;
+    }
+
 
     IEnumerator DashCoolDown(float dashCoolDown)
     {

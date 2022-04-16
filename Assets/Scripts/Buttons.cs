@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
+
 
 public class Buttons : MonoBehaviour
 {
+    [SerializeField] private GameObject levelUI;
+    [SerializeField] private GameObject mainMenuUI;
+    [SerializeField] private GameObject creditsUI;
+
     public void OpenDevMap()
     {
         SceneManager.LoadScene(1);
@@ -14,4 +21,37 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    public void ExitButton()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit(); // original code to quit Unity player
+#endif
+    }
+
+    public void Play()
+    {
+        levelUI.SetActive(true);
+        mainMenuUI.SetActive(false);
+        creditsUI.SetActive(false);
+    }
+
+    public void Credits()
+    {
+        levelUI.SetActive(false);
+        mainMenuUI.SetActive(false);
+        creditsUI.SetActive(true);
+    }
+
+    public void Back()
+    {
+        levelUI.SetActive(false);
+        mainMenuUI.SetActive(true);
+        creditsUI.SetActive(false);
+
+    }
+
+
 }
