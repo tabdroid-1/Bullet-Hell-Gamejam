@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GoBack
   - Key
+  - Enemy
   layers:
   - Default
   - TransparentFX

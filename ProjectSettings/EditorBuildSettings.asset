@@ -20,4 +20,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BulletFury/BulletFury/Demo/Scenes/Demo_Scene.unity
     guid: f48899693b1c6409884b6edd73fe2b80
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: baebb4afbfa034a3aae628362efd06ca
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 5489d742a6c704263b8ca7fdc8e734ee
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 8843a6589e9154e0fb572585c7659549
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: 27214572467764e42b3f570bfeace1d7
+  - enabled: 1
+    path: Assets/Scenes/Level 5.unity
+    guid: 7a502b90e9c894e419bfd803a392c115
+  - enabled: 1
+    path: Assets/Scenes/Level 6.unity
+    guid: b65846b18fc64426392d7de75fbfdda8
+  - enabled: 1
+    path: Assets/Scenes/Level 7.unity
+    guid: e5884cbe510a44b0db198a0f9d6d9f63
+  - enabled: 1
+    path: Assets/Scenes/Level 8.unity
+    guid: e530752d5a8124a2691bdca55eabb4fa
+  - enabled: 1
+    path: Assets/Scenes/Level 9.unity
+    guid: 7b48eb1dc3e004fcb8c627dfd9affad4
+  - enabled: 1
+    path: Assets/Scenes/Level 10.unity
+    guid: cab024933ac8d448aaf85112d5aad391
   m_configObjects: {}

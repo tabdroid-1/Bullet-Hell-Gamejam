@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorTrigger : MonoBehaviour
+public class KeylessDoorTrigger : MonoBehaviour
 {
-
-    [SerializeField]private Player player;
     private Collider2D triger;
 
     public bool unlocked = false;
@@ -18,12 +16,12 @@ public class DoorTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && player.hasKey)
+        if (collision.CompareTag("Player"))
         {
             unlocked = true;
             Debug.Log("asd");

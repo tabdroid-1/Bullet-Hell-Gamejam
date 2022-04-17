@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyFollow : MonoBehaviour
+public class KeyFollow1 : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
-    [SerializeField] private Door door;
+    [SerializeField] private Door1 door;
 
 
     private float arriveTime = 0.6f;

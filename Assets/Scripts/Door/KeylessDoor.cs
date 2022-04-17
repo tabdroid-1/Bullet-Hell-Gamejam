@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class KeylessDoor : MonoBehaviour
 {
-    public DoorTrigger triger;
+    public KeylessDoorTrigger triger;
     public Player player;
 
     public bool doorIsOpen = false;
 
     [SerializeField] private Vector3 openPosition;
-    [SerializeField]private float arriveTime = 1f;
+    [SerializeField] private float arriveTime = 1f;
     private Vector3 velocity = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -35,6 +35,7 @@ public class Door : MonoBehaviour
         {
             transform.position = Vector3.SmoothDamp(transform.position, openPosition, ref velocity, arriveTime);
             doorIsOpen = true;
+
         }
     }
 }

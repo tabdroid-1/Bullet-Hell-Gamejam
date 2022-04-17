@@ -8,18 +8,20 @@ public class Aim : MonoBehaviour
     public GameObject myPlayer;
 
 
-    private void FixedUpdate()
+    private void Update()
     {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 5.23f;
 
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
 
-        difference.Normalize();
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
 
-        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
-
-        if (rotationZ < -90 || rotationZ > 90)
+        if (angle < -90 || angle > 90)
         {
 
 
@@ -28,7 +30,7 @@ public class Aim : MonoBehaviour
             {
 
 
-                transform.localRotation = Quaternion.Euler(180, 0, -rotationZ);
+                transform.localRotation = Quaternion.Euler(180, 0, -angle);
 
 
             }
@@ -36,7 +38,7 @@ public class Aim : MonoBehaviour
             {
 
 
-                transform.localRotation = Quaternion.Euler(180, 180, -rotationZ);
+                transform.localRotation = Quaternion.Euler(180, 180, -angle);
 
 
             }

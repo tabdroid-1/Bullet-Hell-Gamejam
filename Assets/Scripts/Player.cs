@@ -11,21 +11,30 @@ public class Player : MonoBehaviour
     private BulletCollider bulletCollider;
     [SerializeField]
     private KeyFollow keyFollow;
+    public KeyFollow1 keyFollow1;
+    [SerializeField]
+    private GameObject weaponPivot;
+    private SpriteRenderer sprite;
 
     [SerializeField]
     private float speed = 25.0f;
     [SerializeField]
-    public float blood = 100;
+    public float hitPoint = 100;
+
+    public int amounOfKeys;
+
 
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 100f;
     [HideInInspector] public bool dashable = true;
-    [HideInInspector] public int dashLeft = 3;
     [SerializeField] private float dashCooldown = 1;
     [SerializeField] private float collisionDisableDuration = 0.2f;
     [Space]
 
-    public bool hasKey = false;
+    public bool inEnemyRande;
+
+    public bool hasKey1 = false;
+    public bool hasKey2 = false;
 
     public bool gameOver = false;
     public bool finished = false;
@@ -38,6 +47,7 @@ public class Player : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
         bulletCollider = GetComponent<BulletCollider>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -50,7 +60,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-
+        Rotation();
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -58,6 +68,11 @@ public class Player : MonoBehaviour
         }
         
     }
+
+
+    //--------------------------------------------------
+
+
 
     //movement for player
     void Move()
@@ -80,13 +95,13 @@ public class Player : MonoBehaviour
     //if player gets hit by bullet this will get bullets damage and damage player by same amount
     public void HitByBullet(BulletContainer bulletContainer, BulletCollider bulletCollider)
     {
-        blood -= bulletContainer.Damage;
+        hitPoint -= bulletContainer.Damage;
     }
 
     //damages player
     public void Damage(float damage)
     {
-        blood -= damage;
+        hitPoint -= damage;
     }
 
 
@@ -101,7 +116,6 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-
     }
 
     //enables dash
@@ -117,8 +131,8 @@ public class Player : MonoBehaviour
     //checks if player have a key
     void KeyCheck()
     {
-
-        hasKey = keyFollow.canFollow;
+        hasKey1 = keyFollow.canFollow;
+        hasKey2 = keyFollow1.canFollow;
     }
 
 
@@ -132,14 +146,9 @@ public class Player : MonoBehaviour
             playerRb.MovePosition(playerRb.position + (movement * dashSpeed) * Time.fixedDeltaTime);
         }
         StartCoroutine(BulletCollisionDisable(collisionDisableDuration));
-        dashLeft -= 1;
         dashable = false;
         yield return new WaitForSeconds(dashCoolDown);
-        if (dashLeft != 0)
-        {
-            dashable = true;
-        }
-
+        dashable = true;
     }
 
     IEnumerator BulletCollisionDisable(float disableDuration)
@@ -148,4 +157,18 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(disableDuration);
         bulletCollider.enabled = true;
     }
+
+    void Rotation()
+    {
+        if ((weaponPivot.transform.rotation.y > 0.7 && weaponPivot.transform.rotation.y < 1) || (weaponPivot.transform.rotation.y < -0.7 && weaponPivot.transform.rotation.y > -1))
+        {
+            sprite.flipX = true;
+        }
+
+        if (weaponPivot.transform.rotation.y == 0)
+        {
+            sprite.flipX = false;
+        }
+    }
+
 }
