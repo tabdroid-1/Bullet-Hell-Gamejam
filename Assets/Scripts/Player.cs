@@ -14,18 +14,19 @@ public class Player : MonoBehaviour
     private SpriteRenderer sprite;
 
     [SerializeField]
+    private float currentSpeed = 8.0f;
+    [SerializeField]
     private float speed = 25.0f;
     [SerializeField]
     public float hitPoint = 100;
 
-    public int amounOfKeys;
 
 
-    [Header("Dash Settings")]
-    [SerializeField] private float dashSpeed = 100f;
+    [Header("Dodge Settings")]
+    [SerializeField] private float dodgeSpeed = 20.0f;
     [HideInInspector] public bool dashable = true;
     [SerializeField] private float dashCooldown = 1;
-    [SerializeField] private float collisionDisableDuration = 0.2f;
+    [SerializeField] private float collisionDisableDuration = 0.6f;
     [Space]
 
     public bool gameOver = false;
@@ -71,7 +72,7 @@ public class Player : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        playerRb.MovePosition(playerRb.position + movement * speed * Time.fixedDeltaTime);
+        playerRb.MovePosition(playerRb.position + movement * currentSpeed * Time.fixedDeltaTime);
     }
 
     //says what to do if game is over
@@ -121,13 +122,7 @@ public class Player : MonoBehaviour
 
     IEnumerator DashCoolDown(float dashCoolDown)
     {
-        if (movement == new Vector2 (0, 0))
-        {
-            playerRb.MovePosition(playerRb.position + (new Vector2(1, 0) * dashSpeed) * Time.fixedDeltaTime);
-        }else if (movement != new Vector2(0, 0))
-        {
-            playerRb.MovePosition(playerRb.position + (movement * dashSpeed) * Time.fixedDeltaTime);
-        }
+        currentSpeed = dodgeSpeed;
         StartCoroutine(BulletCollisionDisable(collisionDisableDuration));
         dashable = false;
         yield return new WaitForSeconds(dashCoolDown);
@@ -137,8 +132,15 @@ public class Player : MonoBehaviour
     IEnumerator BulletCollisionDisable(float disableDuration)
     {
         bulletCollider.enabled = false;
+        StartCoroutine(SetSpeed());
         yield return new WaitForSeconds(disableDuration);
         bulletCollider.enabled = true;
+    }
+
+    IEnumerator SetSpeed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        currentSpeed = speed;
     }
 
     void Rotation()
