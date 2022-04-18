@@ -10,9 +10,6 @@ public class Player : MonoBehaviour
     private Rigidbody2D playerRb;
     private BulletCollider bulletCollider;
     [SerializeField]
-    private KeyFollow keyFollow;
-    public KeyFollow1 keyFollow1;
-    [SerializeField]
     private GameObject weaponPivot;
     private SpriteRenderer sprite;
 
@@ -30,11 +27,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float dashCooldown = 1;
     [SerializeField] private float collisionDisableDuration = 0.2f;
     [Space]
-
-    public bool inEnemyRande;
-
-    public bool hasKey1 = false;
-    public bool hasKey2 = false;
 
     public bool gameOver = false;
     public bool finished = false;
@@ -54,7 +46,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         GameOver();
-        KeyCheck();
     }
 
     private void FixedUpdate()
@@ -127,14 +118,6 @@ public class Player : MonoBehaviour
         }
         
     }
-
-    //checks if player have a key
-    void KeyCheck()
-    {
-        hasKey1 = keyFollow.canFollow;
-        hasKey2 = keyFollow1.canFollow;
-    }
-
 
     IEnumerator DashCoolDown(float dashCoolDown)
     {

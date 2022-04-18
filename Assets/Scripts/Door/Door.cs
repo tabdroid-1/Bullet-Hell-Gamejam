@@ -4,36 +4,19 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public DoorTrigger triger;
-    public Player player;
-
     public bool doorIsOpen = false;
+    public GameObject lever;
 
-    [SerializeField] private Vector3 openPosition;
-    [SerializeField] private float arriveTime = 1f;
-    private Vector3 velocity = Vector3.zero;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void FixedUpdate()
+    private void Update()
     {
         OpenDoor();
     }
 
     void OpenDoor()
     {
-        if (triger.unlocked)
+        if (lever.GetComponent<Lever>().flipped)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, openPosition, ref velocity, arriveTime);
+            gameObject.SetActive(false);
             doorIsOpen = true;
         }
     }
