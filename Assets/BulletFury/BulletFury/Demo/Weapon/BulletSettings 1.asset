@@ -21,7 +21,7 @@ MonoBehaviour:
   speed: 3
   moveWithTransform: 0
   rotateWithTransform: 0
-  damage: 1
+  damage: 8
   size: 0.25
   colliderSize: 0.5
   angularVelocity: 0

@@ -22,7 +22,7 @@ public class MoveAreaScript : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "Level 3")
         {
-            animator.SetTrigger("Level3");
+            StartCoroutine(Level3());
         }
         if (SceneManager.GetActiveScene().name == "Level 4")
         {
@@ -47,5 +47,11 @@ public class MoveAreaScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    IEnumerator Level3()
+    {
+        yield return new WaitForSeconds(10);
+        animator.SetTrigger("Level3");
     }
 }
