@@ -18,7 +18,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float speed = 25.0f;
     [SerializeField]
-    public float hitPoint = 100;
+    public float hitPoint = 110;
+    public float health = 110;
+    public bool dead = false;
 
 
 
@@ -46,7 +48,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameOver();
+        Health();
     }
 
     private void FixedUpdate()
@@ -54,7 +56,7 @@ public class Player : MonoBehaviour
         Move();
         Rotation();
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             Dash();
         }
@@ -75,25 +77,27 @@ public class Player : MonoBehaviour
         playerRb.MovePosition(playerRb.position + movement * currentSpeed * Time.fixedDeltaTime);
     }
 
-    //says what to do if game is over
-    void GameOver()
-    {
-        if (gameOver)
-        {
-            speed = 0;
-        }
-    }
 
     //if player gets hit by bullet this will get bullets damage and damage player by same amount
     public void HitByBullet(BulletContainer bulletContainer, BulletCollider bulletCollider)
     {
-        hitPoint -= bulletContainer.Damage;
+        health -= bulletContainer.Damage;
     }
 
     //damages player
     public void Damage(float damage)
     {
-        hitPoint -= damage;
+        health -= damage;
+
+    }
+
+    public void Health()
+    {
+        if (health <= 0)
+        {
+            dead = true;
+            Time.timeScale = 0f;
+        }
     }
 
 

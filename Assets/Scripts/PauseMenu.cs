@@ -1,29 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]private GameObject canvas;
+    [SerializeField]private Player player;
     private bool paused = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.))
+        if (Input.GetKeyDown(KeyCode.Escape) && !player.dead)
         {
             if (paused)
             {
                 Resume();
-            } else
+            }
+            else
             {
                 Pause();
             }
+            Debug.Log("sdasd");
         }
 
         
@@ -36,10 +36,16 @@ public class PauseMenu : MonoBehaviour
         paused = true;
     }
 
-    void Resume()
+    public void Resume()
     {
-        canvas.SetActive(true);
+        canvas.SetActive(false);
         Time.timeScale = 1f;
         paused = false;
+    }
+
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
