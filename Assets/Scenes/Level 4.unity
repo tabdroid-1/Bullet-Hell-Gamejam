@@ -12146,7 +12146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283577517841633549, guid: 89e2dfd60e3654c9ebf9e20ec26a531e, type: 3}
       propertyPath: m_Name
-      value: SecretLeverWarp;3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5283577517841633550, guid: 89e2dfd60e3654c9ebf9e20ec26a531e, type: 3}
       propertyPath: m_RootOrder
