@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    [SerializeField, Range(5, 13)]private int sceneIndex;
+    [SerializeField, Range(5, 14)]private int sceneIndex;
 
     // Start is called before the first frame update
     void Start()

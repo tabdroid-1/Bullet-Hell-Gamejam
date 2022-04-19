@@ -19,7 +19,7 @@ MonoBehaviour:
   directionArc: 360
   randomise: 0
   onEdge: 0
-  numSides: 6
+  numSides: 5
   numPerSide: 1
   radius: -0.49
   arc: 360
