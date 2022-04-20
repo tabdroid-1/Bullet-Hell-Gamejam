@@ -6900,7 +6900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932c038434917448cb7d93776af0c04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 7
+  level: 
+  sceneIndex: 4
 --- !u!212 &703283644
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8771,6 +8772,10 @@ PrefabInstance:
     - target: {fileID: 4718627319180029012, guid: f1a85ece603924b2dbb3365c7f78ff61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718627319180029015, guid: f1a85ece603924b2dbb3365c7f78ff61, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a85ece603924b2dbb3365c7f78ff61, type: 3}

@@ -11,15 +11,23 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private GameObject levelUI;
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private GameObject creditsUI;
+    [SerializeField] private GameObject contactUI;
+    [SerializeField] private GameObject controllsUI;
 
+    private void Update()
+    {
+        saveManager = GameObject.Find("SaveManager").GetComponent<SaveManager>();
+    }
+
+    private SaveManager saveManager;
     public void OpenDevMap()
     {
-        SceneManager.LoadScene(1);
+       // SceneManager.LoadScene(1);
     }
 
     public void ReloadDemo()
     {
-        SceneManager.LoadScene(3);
+       // SceneManager.LoadScene(3);
     }
 
     public void ExitButton()
@@ -36,6 +44,9 @@ public class MainMenuButtons : MonoBehaviour
         levelUI.SetActive(true);
         mainMenuUI.SetActive(false);
         creditsUI.SetActive(false);
+        contactUI.SetActive(false);
+        controllsUI.SetActive(false);
+        saveManager.LoadSave();
     }
 
     public void Credits()
@@ -43,6 +54,8 @@ public class MainMenuButtons : MonoBehaviour
         levelUI.SetActive(false);
         mainMenuUI.SetActive(false);
         creditsUI.SetActive(true);
+        contactUI.SetActive(false);
+        controllsUI.SetActive(false);
     }
 
     public void Back()
@@ -50,25 +63,50 @@ public class MainMenuButtons : MonoBehaviour
         levelUI.SetActive(false);
         mainMenuUI.SetActive(true);
         creditsUI.SetActive(false);
+        contactUI.SetActive(false);
+        controllsUI.SetActive(false);
+    }
 
+    public void Contact()
+    {
+        levelUI.SetActive(false);
+        mainMenuUI.SetActive(false);
+        creditsUI.SetActive(false);
+        contactUI.SetActive(true);
+        controllsUI.SetActive(false);
+    }
+    public void Controlls()
+    {
+        levelUI.SetActive(false);
+        mainMenuUI.SetActive(false);
+        creditsUI.SetActive(false);
+        contactUI.SetActive(false);
+        controllsUI.SetActive(true);
     }
 
     public void Level1()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(1);
     }
     public void Level2()
     {
-        SceneManager.LoadScene(5);
+        if (saveManager.level[0])
+            SceneManager.LoadScene(2);
     }
     public void Level3()
     {
-        SceneManager.LoadScene(6);
+        if (saveManager.level[1])
+            SceneManager.LoadScene(3);
     }
     public void Level4()
     {
-        SceneManager.LoadScene(7);
+        if (saveManager.level[2])
+            SceneManager.LoadScene(4);
     }
-
+    public void Level5()
+    {
+        if (saveManager.level[3])
+            SceneManager.LoadScene(5);
+    }
 
 }

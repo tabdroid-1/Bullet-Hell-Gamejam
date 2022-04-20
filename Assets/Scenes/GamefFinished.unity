@@ -861,8 +861,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Coder - \ntabby#2170(Said Gurbanov)\n\n- Composer/Sound Effects - \nDjokovic#0686\n\n-
-    Pixel Artist -\nYahya#7893(Yahya Abd\xFClaziz)"
+  m_text: "- Coder - \ntabby#2170(Said Gurbanov)\n\n- Composer/Sound Effects - \nDjokovic#0686(Tiago
+    Dias)\n\n- Pixel Artist -\nYahya#7893(Yahya Abd\xFClaziz)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

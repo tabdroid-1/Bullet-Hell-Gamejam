@@ -18,7 +18,7 @@ public class GameDone : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(1);
     }
 
     public void ReturnToMainMenu()

@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    [SerializeField, Range(5, 14)]private int sceneIndex;
-
+    public bool[] level;
+    [SerializeField, Range(1, 11)]private int sceneIndex;
+    private SaveManager saveManager;
+    private int levelIndex;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +19,10 @@ public class NextLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        levelIndex = sceneIndex - 2;
+        saveManager = GameObject.Find("SaveManager").GetComponent<SaveManager>();
+        level = saveManager.level;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +30,8 @@ public class NextLevel : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             SceneManager.LoadScene(sceneIndex);
+            level[levelIndex] = true;
+            saveManager.level[levelIndex] = level[levelIndex];
         }
     }
 }

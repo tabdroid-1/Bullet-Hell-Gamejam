@@ -13464,7 +13464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932c038434917448cb7d93776af0c04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 8
+  level: 
+  sceneIndex: 5
 --- !u!61 &822710737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15593,7 +15594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4718627319180029015, guid: f1a85ece603924b2dbb3365c7f78ff61, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a85ece603924b2dbb3365c7f78ff61, type: 3}

@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]private Player player;
     private bool paused = false;
 
+    [SerializeField]private SaveManager saveManager;
+
 
     // Update is called once per frame
     void Update()
@@ -23,10 +25,9 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
-            Debug.Log("sdasd");
         }
 
-        
+        saveManager = GameObject.Find("SaveManager").GetComponent<SaveManager>();
     }
 
     void Pause()
@@ -52,6 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        saveManager.Save();
         SceneManager.LoadScene("MainMenu");
     }
 }
