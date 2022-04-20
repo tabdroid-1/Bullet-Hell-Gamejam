@@ -40,13 +40,19 @@ public class MoveAreaScript : MonoBehaviour
         {
             animator.SetTrigger("Level7");
         }
+        if (SceneManager.GetActiveScene().name == "Level 8")
+        {
+            animator.SetTrigger("Level8");
+        }
+        if (SceneManager.GetActiveScene().name == "Level 9")
+        {
+            animator.SetTrigger("Level9");
+        }
+        if (SceneManager.GetActiveScene().name == "Level 10")
+        {
+            animator.SetTrigger("Level10");
+        }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator Level3()

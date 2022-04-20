@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public float health = 110;
     public bool dead = false;
 
+    private Animator animator;
+
 
 
     [Header("Dodge Settings")]
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         playerRb = GetComponent<Rigidbody2D>();
         bulletCollider = GetComponent<BulletCollider>();
         sprite = GetComponent<SpriteRenderer>();
@@ -73,6 +76,27 @@ public class Player : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        //for animation
+        if (movement.x != 0 || movement.y != 0)
+        {
+            animator.SetBool("running", true);
+        }
+
+        else
+        {
+            animator.SetBool("running", false);
+        }
+
+        if (movement.x > 0)
+        {
+            transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+
+        if (movement.x < 0)
+        {
+            transform.rotation = new Quaternion(0, 180, 0, 0);
+        }
 
         playerRb.MovePosition(playerRb.position + movement * currentSpeed * Time.fixedDeltaTime);
     }

@@ -108,5 +108,30 @@ public class MainMenuButtons : MonoBehaviour
         if (saveManager.level[3])
             SceneManager.LoadScene(5);
     }
+    public void Level6()
+    {
+        if (saveManager.level[4])
+            SceneManager.LoadScene(6);
+    }
+    public void Level7()
+    {
+        if (saveManager.level[5])
+            SceneManager.LoadScene(7);
+    }
+    public void Level8()
+    {
+        if (saveManager.level[6])
+            SceneManager.LoadScene(8);
+    }
+    public void Level9()
+    {
+        if (saveManager.level[7])
+            SceneManager.LoadScene(9);
+    }
+    public void Level10()
+    {
+        if (saveManager.level[8])
+            SceneManager.LoadScene(10);
+    }
 
 }
