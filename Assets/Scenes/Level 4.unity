@@ -12774,7 +12774,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3114147034122726785, guid: 89e2dfd60e3654c9ebf9e20ec26a531e, type: 3}
       propertyPath: sceneIndex
-      value: 13
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114147034122726785, guid: 89e2dfd60e3654c9ebf9e20ec26a531e, type: 3}
+      propertyPath: level.Array.size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5283577517841633549, guid: 89e2dfd60e3654c9ebf9e20ec26a531e, type: 3}
       propertyPath: m_Name
@@ -13464,7 +13468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932c038434917448cb7d93776af0c04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 
+  level: 00000000000000000000
   sceneIndex: 5
 --- !u!61 &822710737
 BoxCollider2D:

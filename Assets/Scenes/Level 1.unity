@@ -6807,6 +6807,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 943510433}
     m_Modifications:
+    - target: {fileID: 3114147034122726785, guid: 89e2dfd60e3654c9ebf9e20ec26a531e, type: 3}
+      propertyPath: level.Array.size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5283577517841633549, guid: 89e2dfd60e3654c9ebf9e20ec26a531e, type: 3}
       propertyPath: m_Name
       value: finishPlaceHolder

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour
 {
     public bool[] level;
-    [SerializeField, Range(1, 11)]private int sceneIndex;
+    [SerializeField, Range(1, 12)]private int sceneIndex;
     private SaveManager saveManager;
     private int levelIndex;
     

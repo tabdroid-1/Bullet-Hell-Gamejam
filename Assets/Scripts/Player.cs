@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public float hitPoint = 110;
     public float health = 110;
     public bool dead = false;
+    private bool canBeHit = true;
 
     private Animator animator;
 
@@ -105,7 +106,11 @@ public class Player : MonoBehaviour
     //if player gets hit by bullet this will get bullets damage and damage player by same amount
     public void HitByBullet(BulletContainer bulletContainer, BulletCollider bulletCollider)
     {
-        health -= bulletContainer.Damage;
+        if (canBeHit)
+        {
+            health -= bulletContainer.Damage;
+            StartCoroutine(canHit());
+        }
     }
 
     //damages player
@@ -169,6 +174,13 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         currentSpeed = speed;
+    }
+
+    IEnumerator canHit()
+    {
+        canBeHit = false;
+        yield return new WaitForSeconds(0.4f);
+        canBeHit = true;
     }
 
     void Rotation()
