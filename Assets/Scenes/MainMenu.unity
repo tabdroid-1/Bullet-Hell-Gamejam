@@ -2316,7 +2316,7 @@ SpriteRenderer:
   m_Size: {x: 4.8, y: 4.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &561015132
@@ -4703,8 +4703,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Contact\ntabby(Said Gurbanov)- Gmail: tabdroid.official@gmail.com \n                                    
     Discord:tabby#2170\n_______________________________________________\nTiago Dias-
-    Gmail: tiagodiasviolinista@gmail.com\n                   Discord: Djokovic#0686\n_______________________________________________\nYahya
-    Abd\xFClaziz- Discord: Yahya#7893"
+    Gmail: tiagodiasviolinista@gmail.com\n                   Discord: Djokovic#0686"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7212,8 +7211,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-Credits-\nProgramer - Said Gurbanov\nComposer - Tiago Dias\nPixel Artist
-    - Yahya Abd\xFClaziz \n\n\n"
+  m_text: '-Credits-
+
+    Programer - Said Gurbanov
+
+    Composer - Tiago Dias
+
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

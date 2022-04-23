@@ -6,6 +6,7 @@ public class Lever : MonoBehaviour
 {
     [HideInInspector]public bool flipped = false;
 
+    [SerializeField] private AudioClip doorOpen;
     private SpriteRenderer spriteRenderer;
     public Sprite lever2;
     // Start is called before the first frame update
@@ -24,8 +25,13 @@ public class Lever : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (!flipped)
+            {
+                AudioSource.PlayClipAtPoint(doorOpen, transform.position, 3);
+            }
             flipped = true;
             spriteRenderer.sprite = lever2;
+            
         }
     }
 }
