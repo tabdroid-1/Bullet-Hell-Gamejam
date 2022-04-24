@@ -14055,6 +14055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flipped: 0
+  doorOpen: {fileID: 8300000, guid: c3d2e98fb88624c9fb9cfd711e0f3ceb, type: 3}
   lever2: {fileID: 21300000, guid: fe69e6668fcef44a6a9d78d61644b8d7, type: 3}
 --- !u!61 &1030687413
 BoxCollider2D:
