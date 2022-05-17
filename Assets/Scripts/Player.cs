@@ -73,12 +73,14 @@ public class Player : MonoBehaviour
 
 
     //movement for player
+    // POLYMORPHISM
     void Move()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
         //for animation
+        // ABSTRACTION
         if (movement.x != 0 || movement.y != 0)
         {
             animator.SetBool("running", true);
@@ -104,6 +106,7 @@ public class Player : MonoBehaviour
 
 
     //if player gets hit by bullet this will get bullets damage and damage player by same amount
+    // POLYMORPHISM
     public void HitByBullet(BulletContainer bulletContainer, BulletCollider bulletCollider)
     {
         if (canBeHit)
@@ -112,14 +115,14 @@ public class Player : MonoBehaviour
             StartCoroutine(canHit());
         }
     }
-
+    // POLYMORPHISM
     //damages player
     public void Damage(float damage)
     {
         health -= damage;
 
     }
-
+    // POLYMORPHISM
     public void Health()
     {
         if (health <= 0)
@@ -142,7 +145,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
-
+    // POLYMORPHISM
     //enables dash
     void Dash()
     {
@@ -182,9 +185,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         canBeHit = true;
     }
-
+    // POLYMORPHISM
     void Rotation()
     {
+        // ABSTRACTION
         if ((weaponPivot.transform.rotation.y > 0.7 && weaponPivot.transform.rotation.y < 1) || (weaponPivot.transform.rotation.y < -0.7 && weaponPivot.transform.rotation.y > -1))
         {
             sprite.flipX = true;

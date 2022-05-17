@@ -9,6 +9,7 @@ using UnityEditor;
 
 public class SaveManager : MonoBehaviour
 {
+    // ENCAPSULATION
     public static SaveManager Instance { get; private set; }
     public bool[] level;
     // Start is called before the first frame update
